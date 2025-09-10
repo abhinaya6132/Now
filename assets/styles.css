@@ -1,0 +1,11 @@
+/* assets/styles.css - optional basic styles for the Streamlit app (used via st.markdown if desired) */
+
+body {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.stButton>button {
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-weight: 600;
+}
