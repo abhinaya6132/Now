@@ -1,8 +1,44 @@
-venv/
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
 .env
+.env.*
+
+# Environment and config files with sensitive information
+config.ini
+config.yaml
+secrets.json
+
+# Log files
+*.log
+
+# IDE files
+.vscode/
+.idea/
+
+# OS generated files
 .DS_Store
-data/candidates.json
+Thumbs.db
+
+# Streamlit-specific
+.streamlit/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Test reports
+htmlcov/
+.coverage
+
+# Ignore Python wheel files
+*.egg-info/
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.swp

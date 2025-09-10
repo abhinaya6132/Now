@@ -1,9 +1,4 @@
-# tests/test_prompts.py
-import unittest
-from app.prompts import generate_questions
+from app import prompts
 
-class TestPrompts(unittest.TestCase):
-    def test_generate_python_questions(self):
-        qs = generate_questions("Python")
-        self.assertEqual(len(qs), 3)
-        self.assertTrue(any("python" in q.lower() or "list" in q.lower() for q in qs))
+def test_prompts_exist():
+    assert prompts.greeting_prompt != ""

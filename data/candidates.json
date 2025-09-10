@@ -1,0 +1,20 @@
+[
+    {
+        "full_name": "John Doe",
+        "email": "johndoe@example.com",
+        "phone_number": "+1234567890",
+        "years_of_experience": 3,
+        "desired_positions": ["Backend Developer", "Software Engineer"],
+        "current_location": "New York, USA",
+        "tech_stack": ["Python", "Django", "PostgreSQL"]
+    },
+    {
+        "full_name": "Jane Smith",
+        "email": "janesmith@example.com",
+        "phone_number": "+0987654321",
+        "years_of_experience": 5,
+        "desired_positions": ["Full Stack Developer"],
+        "current_location": "London, UK",
+        "tech_stack": ["JavaScript", "React", "Node.js", "MongoDB"]
+    }
+]

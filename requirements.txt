@@ -1,5 +1,6 @@
 # Core framework
 streamlit>=1.25.0
+openai
 
 # Utilities
 pandas>=2.0.0

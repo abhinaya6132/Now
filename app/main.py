@@ -1,53 +1,24 @@
-# app/main.py
 import streamlit as st
-from app.chat import ChatSession
-from app.ui import render_greeting, render_candidate_form, render_chat
+from context_manager import ContextManager
+from chat import generate_response
 
-# Custom CSS
-st.markdown(
-    """
-    <style>
-    .main {
-        background-color: #f9fafb;
-        font-family: 'Segoe UI', sans-serif;
-    }
-    h1, h2, h3 {
-        color: #2c3e50;
-    }
-    .stTextInput > div > div > input {
-        border-radius: 10px;
-        border: 1px solid #ccc;
-        padding: 8px;
-    }
-    .stButton > button {
-        background-color: #4CAF50;
-        color: white;
-        border-radius: 10px;
-        padding: 8px 16px;
-        border: none;
-    }
-    .stButton > button:hover {
-        background-color: #45a049;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+def run_chatbot():
+    st.title("Hiring Assistant Chatbot")
 
-# Keep session alive
-if "session" not in st.session_state:
-    st.session_state.session = ChatSession()
+    context_manager = ContextManager()
 
-session: ChatSession = st.session_state.session
+    if 'conversation' not in st.session_state:
+        st.session_state.conversation = []
 
-# Greeting
-render_greeting()
+    user_input = st.text_input("Enter your message:")
+    if st.button("Send"):
+        if user_input:
+            response = generate_response(user_input, context_manager)
+            st.session_state.conversation.append(("You", user_input))
+            st.session_state.conversation.append(("Bot", response))
 
-# Candidate form → Chat
-if not session.candidate_info:
-    form_done = render_candidate_form(session)
-    if form_done:
-        st.success("Candidate info collected!")
-        render_chat(session)
-else:
-    render_chat(session)
+    for speaker, message in st.session_state.conversation:
+        st.write(f"**{speaker}:** {message}")
+
+if __name__ == "__main__":
+    main()  # or some function call to start the app
